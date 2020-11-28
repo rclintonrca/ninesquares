@@ -1,7 +1,7 @@
 var CELL_SHADDED = Math.floor(Math.random() * 9) + 1;
 var CLICKS_THRESHOLD = Math.floor(Math.random() * 5) + 10;
 var CLICKS = 0;
-var DELAY_MS = 250
+var DELAY_MS = 500;
 
 console.log('init cell....' + CELL_SHADDED);
 

@@ -1,7 +1,7 @@
 var CELL_SHADDED = Math.floor(Math.random() * 9) + 1;
 var CLICKS_THRESHOLD = Math.floor(Math.random() * 5) + 10;
 var CLICKS = 0;
-var withDelay = 0;
+var DELAY_MS = 250
 
 console.log('init cell....' + CELL_SHADDED);
 
@@ -26,7 +26,7 @@ function toggleOffCell(element) {
 async function toggleShadding(e) {
     if (CLICKS < CLICKS_THRESHOLD) {
         console.log("sleep");
-        await new Promise(r => setTimeout(r, 100));
+        await new Promise(r => setTimeout(r, DELAY_MS));
     }
     
     var currentShadding = e.target.classList.value;

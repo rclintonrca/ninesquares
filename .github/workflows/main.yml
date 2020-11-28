@@ -1,4 +1,4 @@
-name: CI
+name: super-linter
 on: pull_request
 jobs:
   build:

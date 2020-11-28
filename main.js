@@ -1,7 +1,11 @@
 var CELL_SHADDED = Math.floor(Math.random() * 9) + 1;
+var CLICKS_THRESHOLD = Math.floor(Math.random() * 5) + 10;
+var CLICKS = 0;
+var withDelay = 0;
+
 console.log('init cell....' + CELL_SHADDED);
 
-var findNextCell = () => {
+function findNextCell() {
     var newCell =  Math.floor(Math.random() * 9) + 1;
     if (newCell === CELL_SHADDED) {
         newCell = findNextCell()
@@ -9,17 +13,22 @@ var findNextCell = () => {
     return newCell
 }
 
-var toggleOnCell = (element) => {
+function toggleOnCell(element) {
     element.classList.remove('cell-not-shadded');
     element.classList.add('cell-shadded');
 }
 
-var toggleOffCell = (element) => {
+function toggleOffCell(element) {
     element.classList.remove('cell-shadded');
     element.classList.add('cell-not-shadded');
 }
 
-var toggleShadding = (e) => {
+async function toggleShadding(e) {
+    if (CLICKS < CLICKS_THRESHOLD) {
+        console.log("sleep");
+        await new Promise(r => setTimeout(r, 100));
+    }
+    
     var currentShadding = e.target.classList.value;
     var cellNumber = e.target.textContent
     if (currentShadding === 'cell-not-shadded') {
@@ -28,12 +37,14 @@ var toggleShadding = (e) => {
         toggleOffCell(e.target);
 
         //turn on new cell
-        var nextCell = findNextCell();
-        toggleOnCell(document.getElementById('grid-element-' + nextCell));
+        CELL_SHADDED = findNextCell();
+        // console.log(nextCell, )
+        toggleOnCell(document.getElementById('grid-element-' + CELL_SHADDED));
         
     } else {
         console.warn('no class here');
     }
+    CLICKS++;
 
 }
 

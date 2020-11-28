@@ -1,43 +1,52 @@
-/**
- * TODO: 
- * 
- */
+var CELL_SHADDED = Math.floor(Math.random() * 9) + 1;
+console.log('init cell....' + CELL_SHADDED);
 
+var findNextCell = () => {
+    var newCell =  Math.floor(Math.random() * 9) + 1;
+    if (newCell === CELL_SHADDED) {
+        newCell = findNextCell()
+    }
+    return newCell
+}
+
+var toggleOnCell = (element) => {
+    element.classList.remove('cell-not-shadded');
+    element.classList.add('cell-shadded');
+}
+
+var toggleOffCell = (element) => {
+    element.classList.remove('cell-shadded');
+    element.classList.add('cell-not-shadded');
+}
 
 var toggleShadding = (e) => {
     var currentShadding = e.target.classList.value;
-
+    var cellNumber = e.target.textContent
     if (currentShadding === 'cell-not-shadded') {
-        e.target.classList.remove('cell-not-shadded')
-        e.target.classList.add('cell-shadded')
-        console.log('toggle');
+        console.log('do nothing; cell ' + cellNumber + ' clicked');
     } else if (currentShadding === 'cell-shadded') {
-        e.target.classList.remove('cell-shadded')
-        e.target.classList.add('cell-not-shadded')
-        console.log('foo')
-    } else {
-        console.warn('no class here')
-    }
-    
-}
- 
- var cell1 =  document.getElementById('grid-element-1');
- var cell2 =  document.getElementById('grid-element-2');
- var cell3 =  document.getElementById('grid-element-3');
- var cell4 =  document.getElementById('grid-element-4');
- var cell5 =  document.getElementById('grid-element-5');
- var cell6 =  document.getElementById('grid-element-6');
- var cell7 =  document.getElementById('grid-element-7');
- var cell8 =  document.getElementById('grid-element-8');
- var cell9 =  document.getElementById('grid-element-9');
+        toggleOffCell(e.target);
 
- cell1.addEventListener("click", toggleShadding);
- cell2.addEventListener("click", toggleShadding);
- cell3.addEventListener("click", toggleShadding);
- cell4.addEventListener("click", toggleShadding);
- cell5.addEventListener("click", toggleShadding);
- cell6.addEventListener("click", toggleShadding);
- cell7.addEventListener("click", toggleShadding);
- cell8.addEventListener("click", toggleShadding);
- cell9.addEventListener("click", toggleShadding);
- 
+        //turn on new cell
+        var nextCell = findNextCell();
+        toggleOnCell(document.getElementById('grid-element-' + nextCell));
+        
+    } else {
+        console.warn('no class here');
+    }
+
+}
+
+
+var arr = Array.from(Array(10).keys());
+arr.splice(0, 1);
+
+arr.map(el => {
+    console.log(el);
+    var _cell = document.getElementById('grid-element-' + el);
+    _cell.addEventListener("click", toggleShadding);
+    if (el === CELL_SHADDED) {
+        _cell.classList.remove('cell-not-shadded');
+        _cell.classList.add('cell-shadded')
+    }
+});

@@ -12,5 +12,14 @@ jobs:
       uses: github/super-linter@v3
       env:
         VALIDATE_ALL_CODEBASE: true
+        VALIDATE_ANSIBLE: false
+        VALIDATE_GO: false
+        VALIDATE_ARM: false
         DEFAULT_BRANCH: main
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: debug
+      run: ls /
+    - name: debug2
+      run: ls /github
+    - name: debug3
+      run: ls /github/workspace

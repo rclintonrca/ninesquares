@@ -17,10 +17,14 @@ jobs:
         VALIDATE_ARM: false
         DEFAULT_BRANCH: main
         DISABLE_ERRORS: true
+        OUTPUT_FOLDER: /linterReport
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: debug
       run: ls /
     - name: debug2
-      run: ls /github
-    - name: debug3
-      run: ls /github/workspace
+      run: ls /linterReport
+    - name: Archive super linter results
+      uses: actions/upload-artifact@v2
+      with:
+        name: super-linter-report
+        path: /linterReport/super-linter.report

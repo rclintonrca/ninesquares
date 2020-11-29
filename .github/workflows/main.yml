@@ -4,10 +4,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    # - name: Checkout Code
-    #   uses: actions/checkout@v2
-    #   with:
-    #     fetch-depth: 0
+    - name: Checkout Code
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
     # - name: Lint Code Base
     #   uses: github/super-linter@v3
     #   env:
@@ -19,9 +19,11 @@ jobs:
     #     DISABLE_ERRORS: true
     #     OUTPUT_FOLDER: linterReport
     #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - name: debug
+    - name: debug /
+      run: ls /
+    - name: debug .
       run: ls .
-    - name: debug2
+    - name: debug2 linterReport
       run: ls linterReport
     - name: Archive super linter results
       uses: actions/upload-artifact@v2

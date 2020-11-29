@@ -16,6 +16,12 @@ jobs:
         DISABLE_ERRORS: false
         OUTPUT_FOLDER: linterReport
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        VALIDATE_YAML: true
+        VALIDATE_CSS: true
+        VALIDATE_JAVASCRIPT_ES: true
+        VALIDATE_JAVASCRIPT_STANDARD: true
+        VALIDATE_HTML: true
+
         VALIDATE_ANSIBLE: false
         VALIDATE_ARM: false
         VALIDATE_BASH: false
@@ -24,7 +30,6 @@ jobs:
         VALIDATE_CLOUDFORMATION: false
         VALIDATE_COFFEE: false
         VALIDATE_CSHARP: false
-        VALIDATE_CSS: true
         VALIDATE_DART: false
         VALIDATE_DOCKERFILE: false
         VALIDATE_DOCKERFILE_HADOLINT: false
@@ -33,10 +38,7 @@ jobs:
         VALIDATE_GHERKIN: false
         VALIDATE_GO: false
         VALIDATE_GROOVY: false
-        VALIDATE_HTML: true
         VALIDATE_JAVA: false
-        VALIDATE_JAVASCRIPT_ES: true
-        VALIDATE_JAVASCRIPT_STANDARD: true
         VALIDATE_JSON: false
         VALIDATE_JSX: false
         VALIDATE_KOTLIN: false
@@ -74,7 +76,6 @@ jobs:
         VALIDATE_TYPESCRIPT_ES: false
         VALIDATE_TYPESCRIPT_STANDARD: false
         VALIDATE_XML: false
-        VALIDATE_YAML: true
     - name: Archive super linter results
       uses: actions/upload-artifact@v2
       with:

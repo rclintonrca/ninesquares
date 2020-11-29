@@ -1,28 +1,26 @@
 .grid-container {
-    width: 500px;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    /* grid-template-rows: 70% 70% 70%; */
-    /* row-gap: 10px; */
-    grid-gap: 10px;
-    background-color: #ac48ac;
-    padding: 10px;
-    height: 300px;
-    border: cyan;
+  width: 500px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 10px;
+  background-color: #ac48ac;
+  padding: 10px;
+  height: 300px;
+  border: cyan;
   }
   
   .grid-container > div {
-    text-align: center;
-    font-size: 30px;
-    padding: 15% 0;
+  text-align: center;
+  font-size: 30px;
+  padding: 15% 0;
   }
 
   .cell-not-shadded {
-    background-color: rgba(234, 237, 248, 0.8);
-    border: 1px solid black;
-
+  background-color: rgba(234, 237, 248, 0.8);
+  border: 1px solid black;
   }
+  
   .cell-shadded {
-      background-color: rgb(18, 109, 214);
-      border: turquoise;
+  background-color: rgb(18, 109, 214);
+  border: turquoise;
   }

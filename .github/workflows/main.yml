@@ -16,6 +16,7 @@ jobs:
         VALIDATE_GO: false
         VALIDATE_ARM: false
         DEFAULT_BRANCH: main
+        DISABLE_ERRORS: true
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: debug
       run: ls /

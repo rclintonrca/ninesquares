@@ -20,11 +20,11 @@ jobs:
         OUTPUT_FOLDER: /linterReport
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: debug
-      run: ls /
+      run: ls .
     - name: debug2
-      run: ls /linterReport
+      run: ls linterReport
     - name: Archive super linter results
       uses: actions/upload-artifact@v2
       with:
         name: super-linter-report
-        path: /linterReport/super-linter.report
+        path: linterReport/super-linter.report

@@ -19,7 +19,7 @@ jobs:
         VALIDATE_YAML: true
         VALIDATE_CSS: true
         VALIDATE_JAVASCRIPT_ES: true
-        VALIDATE_JAVASCRIPT_STANDARD: false
+        # VALIDATE_JAVASCRIPT_STANDARD: false
         VALIDATE_HTML: true
 
         # VALIDATE_ANSIBLE: false
